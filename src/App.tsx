@@ -1,12 +1,10 @@
 import React from "react"
 
 import { Shell } from "components"
+import { useAuth } from "hooks"
 
 const App: React.FC = () => {
-  const [username, setUsername] = React.useState("")
-  const [loggedIn, setLoggedIn] = React.useState(false)
-
-  const signIn = () => setLoggedIn(true)
+  const { username, loggedIn, signIn, setUsername } = useAuth()
 
   return (
     <Shell>
