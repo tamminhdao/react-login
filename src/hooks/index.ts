@@ -6,9 +6,9 @@ type Message =
       type: "LOG_IN"
     }
 
-const init = { username: "", loggedIn: false }
+export const initialAuthState = { username: "", loggedIn: false }
 
-const reducer = (state: typeof init, message: Message) => {
+const reducer = (state: typeof initialAuthState, message: Message) => {
   switch (message.type) {
     case "SET_USERNAME":
       return { ...state, username: message.username }
@@ -20,7 +20,10 @@ const reducer = (state: typeof init, message: Message) => {
 }
 
 export const useAuth = () => {
-  const [{ loggedIn, username }, dispatch] = React.useReducer(reducer, init)
+  const [{ loggedIn, username }, dispatch] = React.useReducer(
+    reducer,
+    initialAuthState
+  )
 
   const signIn = () => dispatch({ type: "LOG_IN" })
   const setUsername = (username: string) =>

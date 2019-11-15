@@ -1,1 +1,2 @@
-export * from './Shell'
+export * from "./Dashboard"
+export * from "./Shell"
